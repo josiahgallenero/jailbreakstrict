@@ -1,0 +1,660 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="strict.jpg" type="image/x-icon">
+    <title>Jailbreak - Dupe Checker</title>
+    <style>
+      
+    
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000B1C;
+      color: white;
+    }
+
+    .header {
+      padding: 20px;
+      text-align: center;
+      background-color: #000B1C;
+    }
+
+    .header h1 {
+      font-size: 36px;
+    }
+
+    .header p {
+      font-size: 18px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000B1C;
+      border: 2px solid #FFFFFF;
+    }
+
+    .navbar a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .navbar a:hover {
+      background-color: #555;
+    }
+
+
+    .container {
+    background-color: darkcyan;
+    padding: 23px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; 
+    text-align: center;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+    .container h2 {
+      font-size: 30px;
+    }
+
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 17px;
+        text-align: start;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 5px;
+        font-size: 17px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      p {
+        margin-top: 22px;
+        font-weight: bold;
+      }
+
+      .error {
+        color: #ff0000;
+      }
+
+      .back-button {
+        display: block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Jailbreak Strict Private Server</h1>
+      <p>Here are some free Jailbreak Strict Private Server where you can grind and do contracts without having to worry about cops or exploiters.</p>
+    </div>
+
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="dupelist.html">Dupe Checker(not updated yet)</a>
+      <a href="https://docs.google.com/spreadsheets/d/12aPBmrHP5MLwoht9QcBiERPYUmXTJiTbBF43630togE/edit#gid=0">Value List</a>
+      <a href="https://docs.google.com/spreadsheets/d/12aPBmrHP5MLwoht9QcBiERPYUmXTJiTbBF43630togE/edit#gid=0">Value List 2</a>
+      <a href="https://docs.google.com/spreadsheets/d/12aPBmrHP5MLwoht9QcBiERPYUmXTJiTbBF43630togE/edit#gid=1964276733">Hyperchromes</a>
+    </div>
+
+    <div class="container">
+      <h2>Dupe Checker</h2>
+      <form id="dupeForm">
+        <input type="text" id="name" name="name" placeholder="Enter Username" required>
+        <button type="button" onclick="checkDupe()">Check</button>
+      </form>
+      <p id="result"></p>
+      <p class="error" id="error"></p>
+    </div>
+
+    <script>
+      const dupeListString = `
+  F4NTU
+  BLACKLANTERNX
+  MIGUELP2P3
+  METALOWE
+  LAZZERBF
+  TURTLELY_1001
+  GLOYFEEL
+  D3LTT4
+  MZTFY
+  IBIZABEARBEAR1
+  MEGAZOMBIEG
+  ANTI_ELPAPUXD
+  X3REGA
+  6DOZN
+  CANOYR
+  XXOUR_LEMONXX
+  JACKTYIE
+  TRAIN43285
+  LEARNARDO12
+  MIKIFAJNY
+  JOHN_MICHAEL
+  CARLOAGB
+  TARBOYYTYEET
+  UETARCODE
+  ZIXGGGG
+  IMPERFECTT
+  01_KENJI
+  HAZED_MIRAGE
+  AKEEM80
+  EPHY2020
+  DW_GAMER
+  4EVERPEPPER
+  YEEZUDICIPLE
+  RENATO20082000
+  CARNOTY123
+  FWHYME
+  CRONO_IA
+  JAVIERRV98ER
+  AIANDUUUDE
+  DETEKIVROURA
+  AMUGU1206
+  CHRONO_NAVI
+  WELOVEVEL
+  ZZBIOX
+  BARTIX_1
+  DARK_3N
+  DKELLY916
+  TIQKIE
+  DAT_BOYDK
+  IONEFUND
+  NICKELDIME88
+  GHOT_B
+  VAL7JAR
+  LAZZERBF
+  7HREE
+  ROGUEPOKE
+  BENDAWARRIOR
+  BROCOOLKID675
+  VUXTEALBR
+  VVCARTIE
+  ENERGIZERMC
+  THEJOKERHUBROO
+  CEOCHANGWOW
+  DGQUICK55
+  OAERBOY_9
+  IDCV128MA
+  AVAGEREPTI
+  CREEPZ1424JLOT
+  BIGBO_LAIRON
+  BXEVIL
+  C2HING
+  DEDENNE1234
+  GATO15A
+  GREENAVOCADORB
+  HUJIPR123
+  IIHARTRUCENII
+  JETTAR261
+  EEDNAME101
+  K0QXH
+  BOMBONEBR
+  NINJATRIKE
+  DANOTAB
+  EANTHEUPE
+  PANTUTAJ100
+  12311061
+  ATKDALTON
+  360XMAN101
+  KOKO111_AQ
+  NAY7373
+  PHINDR
+  VOLOT
+  UZAIR1979AL
+  THEJOKERHUE
+  LINT_IAIAH
+  TAXIUADO
+  TUOMAR
+  ROBOTIME123
+  LIMEGUY52
+  POPMEPLE
+  OLIWIER1304
+  P9NDAGAMER
+  NYOOM
+  M7MD076
+  KILERHDD
+  JOHNFIRE197
+  KHALO1
+  JUANE6235
+  HTILTF
+  DALLCARTHER
+  9TRAPZ
+  AMAZINGMAN1
+  BADFIVER
+  NAY1313
+  JAIZEE14
+  BAWAL456
+  THEJOKERHUE
+  FIRERAPIDGA
+  YOUFAT323
+  2007ANTON228
+  XXDARK_AIDENXX
+  VAL7JAR
+  KIIIXUA
+  TUTUNEAANAM
+  BYXEVIL
+  CERTIFIEDLUX
+  LLFOLY
+  MELVINPO
+  AEROILEER
+  DITRACTEDG
+  EXPLOTLE
+  GUET666TUAN
+  LII3F
+  FPRO_DIAMOND
+  PAPANCLA4
+  KATANG789
+  HIHAMICOOL
+  ALEH123X
+  LCNG111
+  JEYYDELCAR13
+  IZMFN
+  MILLIONER3109
+  JUANE6235
+  ARE11201
+  RIWEHD
+  PAYE
+  YOHAHANO
+  MAXIMROZH
+  KILLERINTI
+  CARLO43PRO
+  PEW345
+  NEYDER123PE
+  AIDAMEN_KING
+  TR1PPYYAM
+  BLACKPANTHE
+  PETRINI08
+  ALIONG2012
+  THEPROGAMER
+  JUNMARKDIAYKO
+  MYNAMEIILLER
+  FERGTO7
+  IMLITTLEDAN
+  JETTAR361
+  THEPRAKTER
+  TUPROUNICO
+  EELKUH
+  JOYINOTAJOY
+  TUPROUNICO
+  KRITT3R_CAKE
+  COCA773
+  YONATANPLAYZ
+  MARIONGWAPING
+  HAZEWENTMITY
+  BLAQUEZBRI
+  ZYMONDADC12
+  WEETMANBRO
+  TYPECLEAR
+  MEGA_ARCEU09
+  NATION_OFICIAL
+  JACKIEITB
+  HUNTERFREEV
+  TIDMAI
+  THEEPICMINEBOY
+  JACKIEITB
+  BB0307
+  VAPORIH_RA
+  JAGKADADO
+  HARMONICDUT
+  RENANLOCO3
+  OMG_THEBO
+  JNICKLOT
+  HEROVNG123
+  BRIANBOY_1
+  R_XER
+  JAGUAR333777
+  KINGBIKTOAD
+  BROKHAZE
+  RICARDO_YT32
+  KHAMANIETHE
+  XPANDABEN
+  CAYLGAMINH
+  IIDARK_V1BEZ
+  PANCAKE7777
+  AAALAAAPAAAN
+  KOKONU_TV
+  DETROYERAM1
+  UETARCODE
+  EAONEDEN200
+  LAZZERBF
+  KINGJINGHEFO
+  HUNTERFREEV
+  HAZEWENTMITY
+  NATECHENHEN
+  IDVV128MA
+  PRINCE_OFFI
+  HAZEWENTMITY
+  RNN007
+  BIGBO_LAIRON
+  COMRADE_NIPER
+  EKANTONK
+  RABIAMUHAMM
+  MOAHMMED119
+  UN3ZHI
+  FIRE_OGNIK
+  GEOARX
+  JB8
+  HEFFANATOR246
+  BANDIT
+  LEGENDYT141
+  BANANA CAR
+  DDPDDPDF
+  BANANA CAR
+  JIONBL
+  PROTO-8
+  ZZBIOX
+  PROTO-8
+  LEGENDYT141
+  PROTO-8
+  OUTTRX
+  PROTO-8
+  ZZBIOX
+  NAKE
+  ZAPH984
+  GOKKIZ72
+  CED_1
+  LOADD
+  RAYO_MYT
+  CYNIXX_YT
+  KINGDUDE13345
+  WERKAKER
+  BLUEFALCON564
+  UMIMPLEX
+  NICOWELH10
+  AURAV88
+  ZATRATIC
+  TALAVOK
+  DAKOTA232000
+  DAZZLINGCHAEC
+  HAZEWENTMITY
+  LIBEXD12
+  JOEYPIG2007
+  KYNIUXD
+  ONEBITOFHOPE
+  777NERF
+  ANGELITOREYY
+  KYWALKERE
+  DAHER3992
+  YT_UPERPEK
+  VERMEE
+  JHANCA328_XD
+  LC2CPGE
+  HAZEWENTMITY
+  THEDUMBLING
+  COMOLYNXX
+  FIUTZWARZAWY
+  BUHWHACKER420
+  MUHAMMEDOFF
+  XM_ARFA
+  MINECRAFTJAILB
+  TALICITE
+  MILOBROTHERW
+  D3ADITE
+  3333QQ11
+  CHZ_XL
+  IHACKJAILBR
+  PARKI028
+  ARTUR709998
+  YEE1597534682
+  JEPARCHER
+  KILLERBEANTWE
+  L_IRO
+  NOBORO
+  IAMNOTAWEA
+  JUHUA12325
+  YT_ELVI
+  DA_FIGO
+  WIKTORON321
+  EYAFROMDOU
+  CLOVI102012
+  LAZZERBF
+  CED333345
+  DA_FIGO
+  JUHUA12325
+  ROOTBOOT
+  DEV_DUCANH
+  NAYRODE34
+  PARKI028
+  RENZON220PE
+  ENIA525
+  1234OMO
+  HEARTDRAGON
+  IT_MADZ99
+  FIERY_DIAMONDY
+  TREYLORBXRG1
+  BOCDAN1
+  ZLEPILP3
+  ATONDAN0096
+  ANDREWGHKD
+  BLEHBLEHBLE
+  IONCARNOMO
+  JOOMVP
+  ALIVE_CHAN
+  7ORDE
+  BREHAREUK
+  OFFICIALCELOA
+  PHONENINATOR
+  IMMORTAL_RA
+  MAK0072010
+  EYAFROMDOU
+  ZAKIOR02
+  QEVN
+  MERVYN06
+  LEONAFO444
+  HATUNEMIKU
+  IJUTDIDURI
+  HAZEWENTMITY
+  XQEVN
+  LJL105583
+  LOLL_RED
+  ODELL_GIANT
+  MICHAELANG360
+  466607778
+  262562412
+  JEUTTTX
+  BOE_CLEAN
+  ANDREWGHKD
+  ANTHONYFF213
+  XDLEGENDARY
+  HTHEVALOR124
+  7ORDE
+  NEYMAR17XPRO
+  KODKARMA
+  DILLYDABO1
+  XM_ARFA
+  C_HNY
+  NORG_999
+  MXT_XR
+  ILVERVAMPIRE1
+  ANGE1PRO587
+  ANTONIOCOR
+  DIEFOROCKK
+  REAL_RAZERGX
+  TTVAVAGE2821
+  WOLFCRAFTHD1
+  ELIEYOURENEMY
+  LAKIOMIYOU
+  KANEX_KGM
+  DANNYDOO2007
+  EYAFROMDOU
+  THELORD3243
+  KARTELRBX
+  XGHADE
+  BALLEFRAN2_31
+  MVZ963
+  TIMDEPOOO
+  YYUHRG
+  DARKPRO0999
+  REMAUT
+  BREHAREUK
+  PROPIAYERA
+  Z3KYO
+  HAZEWENTMITY
+  1IANGIEVII
+  HAZEWENTMITY
+  ANTIVENOM30000
+  AULITITO213
+  WELOVEVEL
+  MINECRAFTJAILB
+  HAZEWENTMLTY
+  DRUMMER2006
+  HAZEWENTMITY
+  HAZEWENTMITY
+  BREHAREUK
+  HAZEWENTMITY
+  BLUXONLY
+  HAZEWENTMITY
+  BOE_CLEAN
+  ITLEO3ORRY
+  EYAFROMDOU
+  ALEEXANDROO
+  THEBLACKIW
+  1Z_VXZ
+  ITLEO3ORRY
+  7ORDE
+  _ALEXANDER7
+  TEVENTLACECA
+  GAMBIXGT
+  ALEXGAMER2YT
+  MAREGATUPAU
+  IONCARNOMO
+  MATYAKLIMA
+  _ALEXANDER7
+  HAKEDA7758
+  JAILBREAKPL
+  BUMBLEHORNE
+  FLAME_KING064
+  ILLIIILLLIL
+  7ORDE
+  MR_DONUTREAL
+  FOENIX_M4
+  MARCOGREY123
+  VEQNXL
+  GITGUDCRUB2
+  IMMORTAL_RA
+  EYAFROMDOU
+  3955100325
+  BIGHIFT101
+  AIMEEMINAMI
+  FATIMA2009CX
+  TM_DPLE0100
+  JOTHYNO967_YT
+  TEODOR_AGA
+  UBGOBRRR
+  TM_DPLE0100
+  BREHAREUK
+  BRIXON210
+  NEZUKIHAH
+  CAT_COTOFEY48
+  CHARLIEB22NERD
+  GLEB110737
+  ALEJANDRO200PR
+  4KY_LIFT
+  BAR_IK0707
+  GLEB110737
+  EYAFROMDOU
+  LILLLLWIL
+  AWFULDECIION
+  PIXELATEDNOOB
+  7ORDE
+  PLANETAPE11
+  KARTELRBX
+  THEMRQUACKY
+  EYAFROMDOU
+  7ORDE
+  ERAHONE
+  IUUAI
+  NAYRODE34
+  AUYDOODOO
+  CITERYGOODC
+  IMTITI
+  MATO12377
+  FREHFROMTH
+  NINJAFLYER88
+  EVT87AIT
+  JOINDCGGJB
+  2MORROWPRO
+  FADEEFOUR
+  GALACTICFURY7
+  YEEZUDICIPLE
+  IAK_GM
+  IMAGINELOI
+  GHAZTGUY
+  MR1TRUFFLE
+  YAMAINBOI11
+  TIGR1258
+  MUHAMMED2750
+  BACONFORLIF
+  AMAZEDBOT
+  `;
+
+  const cleanDupeListString = dupeListString.trim();
+  const dupeListArray = cleanDupeListString.split('\n').map(name => name.toLowerCase());
+
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  function checkDupe() {
+    const inputName = document.getElementById("name").value.toLowerCase();
+    const resultElement = document.getElementById("result");
+    const errorElement = document.getElementById("error");
+
+    if (inputName.length < 3) {
+      resultElement.textContent = "";
+      errorElement.textContent = "Please enter at least 3 characters.";
+    } else if (dupeListArray.includes(inputName)) {
+      resultElement.textContent = `CAREFUL, ${capitalizeFirstLetter(inputName)} has DUPED!`;
+      errorElement.textContent = "";
+    } else {
+      resultElement.textContent = `CLEAN, ${capitalizeFirstLetter(inputName)} has never DUPED!`;
+      errorElement.textContent = "";
+    }
+  }
+
+  </script>
+  </body>
+  </html>
