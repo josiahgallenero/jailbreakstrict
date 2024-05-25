@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="Images/strict.jpg">
     <title>Jailbreak Strict</title>
     <link rel="icon" href="Images/strict.jpg" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
@@ -177,7 +176,15 @@ body {
         padding: 0.5rem 0;
     }
 }
+.request-midman-btn a {
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+            width: 50%;
+        }
 
+        .request-midman-btn:hover a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -210,9 +217,11 @@ body {
                         More
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="https://www.facebook.com/groups/1144089229481742/posts/1405455396678456">Staff's Vouches</a>
                         <a class="dropdown-item" href="#services" onclick="scrollToSection('services')">Services</a>
                         <a class="dropdown-item" href="#feedback" onclick="scrollToSection('feedback')">Feedback</a>
                         <a class="dropdown-item" href="#footer" onclick="scrollToSection('footer')">Footer</a>
+                        <button id="openModalBtn" class="dropdown-item" data-toggle="modal" data-target="#supportModal">General Support</button>
                     </div>
                 </li>
             </ul>
@@ -220,12 +229,58 @@ body {
     </div>
 </nav>
 
+<!-- Report Modal -->
+<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="supportModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="supportModalLabel">General Support</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>If you need assistance or want to report something, please fill out the form below:</p>
+          <form action="" method="POST">
+            <div class="form-group">
+              <label for="issue">Issue:</label>
+              <textarea class="form-control" id="issue" name="issue" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="reason">Reason:</label>
+              <select class="form-control" id="reason" name="reason">
+                <option value="general">General Inquiry</option>
+                <option value="scam">Report Scamming</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="facebookLink">Facebook Link of Scammer:</label>
+              <input type="text" class="form-control" id="facebookLink" name="facebookLink">
+            </div>
+            <div class="form-group">
+              <label for="photos">Attach Photos as Proof: </label>
+              <input type="file" class="form-control-file" id="photos" name="photos[]" multiple>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
 <script>
     function scrollToSection(sectionId) {
         var targetSection = document.getElementById(sectionId);
 
         targetSection.scrollIntoView({ behavior: 'smooth' });
     }
+
 </script>
 
 
@@ -397,36 +452,50 @@ body {
                 <img src="Images/Khalil.jpg" alt="Khalil" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Khalil</h4>
                 <span class="badge badge-primary badge-admin">Group Owner</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/khalil.nathaniel/">Request Midman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Irwin.jpg" alt="Irwin Carl Geroy" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Irwin Carl Geroy</h4>
                 <span class="badge badge-primary badge-admin">Head Admin</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/ItzyaboiC4RL">Request Midman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Oscar.jpg" alt="Oscar Calunsag" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Oscar Calunsag</h4>
                 <span class="badge badge-primary badge-admin">Admin</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/oscar.calunsag.3/">Request Midman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Izana.jpg" alt="Izana Kurokawa" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Izana Kurokawa</h4>
                 <span class="badge badge-primary badge-admin">Admin</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/profile.php?id=100084200971598">Request Midman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Leighanne.jpg" alt="Leighanne" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Leighanne</h4>
                 <span class="badge badge-primary badge-admin">Admin</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/leighanne.0404/">Request Midwoman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Nayel.jpg" alt="Nayel" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Nayel</h4>
                 <span class="badge badge-primary badge-admin">Admin</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/nayel.quiliope.33/">Request Midwoman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Lawrence.jpg" alt="Lawrence Alob" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Lawrence Alob</h4>
                 <span class="badge badge-primary badge-admin">Admin</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/larwence.alob/">Request Midman</a></button>
             </div>
         </div>
         <hr>
@@ -438,36 +507,50 @@ body {
                 <img src="Images/Anya.jpg" alt="Anya ゝ" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Anya ゝ</h4>
                 <span class="badge badge-secondary badge-admin">Moderator</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/profile.php?id=100077275148846">Request Midman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Josiah.jpg" alt="Josiah Danielle Gallenero" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Josiah Danielle Gallenero</h4>
                 <span class="badge badge-secondary badge-admin">Moderator</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/josiahhhh8">Request Midman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Allyza.jpg" alt="Allyza Aclon" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Allyza Aclon</h4>
                 <span class="badge badge-secondary badge-admin">Moderator</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/alysa.blanco.96">Request Midwoman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Sean.jpg" alt="Sean Michael Cagampang" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Sean Michael Cagampang</h4>
                 <span class="badge badge-secondary badge-admin">Moderator</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/seanmichael.cagampang.1">Request Midman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/strict.jpg" alt="Princess Espinosa" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Princess Espinosa</h4>
                 <span class="badge badge-secondary badge-admin">Moderator</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/Danica342">Request Midwoman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Nick.jpg" alt="Nick Caidoy" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Nick Caidoy</h4>
                 <span class="badge badge-secondary badge-admin">Moderator</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/nickxcaidoy">Request Midman</a></button>
             </div>
             <div class="col-lg-4 staff-member">
                 <img src="Images/Vergara.jpg" alt="Vergara Carl" class="img-fluid rounded-circle staff-img mb-3">
                 <h4>Vergara Carl</h4>
                 <span class="badge badge-secondary badge-admin">Moderator</span>
+                <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/profile.php?id=61555523979004">Request Midman</a></button>
             </div>
         </div>
         <hr>
@@ -479,9 +562,12 @@ body {
             <img src="Images/Julian.jpg" alt="Julian Pedery" class="img-fluid rounded-circle staff-img mb-3">
             <h4>Julian Pedery</h4>
             <span class="badge badge-info badge-admin">Permitted Midman</span>
+            <br>
+                <button class="btn btn-success request-midman-btn mt-2"><a href="https://www.facebook.com/profile.php?id=100080183693759">Request Midman</a></button>
         </div>
     </div>
 </div>
+
 <hr>
 <br>
 <br>
